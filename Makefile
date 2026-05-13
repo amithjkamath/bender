@@ -3,13 +3,18 @@ PYTHON := $(VENV)/bin/python
 UV := uv
 MODE ?= visualize
 
-.PHONY: setup install clean clean-venv run-v1 run-v2 run-v3 run-v4 run-v5 run-v6 run-v7
+FILE ?= training-models/results/v1/model.onnx
+
+.PHONY: setup install clean clean-venv netron run-v1 run-v2 run-v3 run-v4 run-v5 run-v6 run-v7
 
 setup:
 	$(UV) venv $(VENV)
 
 install: setup
 	$(UV) pip install --python $(PYTHON) -e .
+
+netron:
+	$(VENV)/bin/netron $(FILE)
 
 clean:
 	rm -rf training-models/results/

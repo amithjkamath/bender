@@ -2,6 +2,7 @@
 *tfevents*
 *.pt
 *.onnx
+*.egg-info
 
 .venv/
 
